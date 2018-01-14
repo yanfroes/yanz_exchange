@@ -1,6 +1,6 @@
 $(document).ready ->
 
-  $('.inverter').click ->
+  $('.inverter').on "click", ->
     a = $("#currency").val()
     b = $("#currency_destination").val()
 
@@ -8,9 +8,8 @@ $(document).ready ->
     $("#currency_destination").val(a)
     $('form').submit()
 
-  $("#quantity").click ->
-    if $("#quantity").val().length > 0
-      $('form').submit()
+  $(document).on "change", ->
+    $('form').submit()
 
   $('form').submit ->
     if $('form').attr('action') == '/exchange'
