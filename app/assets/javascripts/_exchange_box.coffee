@@ -1,4 +1,17 @@
 $(document).ready ->
+
+  $('.inverter').click ->
+    a = $("#currency").val()
+    b = $("#currency_destination").val()
+
+    $("#currency").val(b)
+    $("#currency_destination").val(a)
+    $('form').submit()
+
+  $("#quantity").click ->
+    if $("#quantity").val().length > 0
+      $('form').submit()
+
   $('form').submit ->
     if $('form').attr('action') == '/exchange'
       $.ajax '/exchange',
